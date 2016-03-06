@@ -1,0 +1,11 @@
+
+{{#each model as |post|}}
+<article class="post" data-post-id="{{post.id}}">
+	{{link-to post.title 'posts.post' post}}<br>
+	{{{post.content}}}
+</article>
+{{/each}}
+
+
+
+{{outlet}}

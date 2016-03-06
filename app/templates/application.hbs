@@ -1,3 +1,14 @@
-<h2 id="title">Welcome to Ember</h2>
-
+<header class="header header-main lo-wrapper"><h1 class="brand">{{link-to 'Kenneth Lindbeck-Dahlstrøm' 'application'}}</h1>
+<nav class="lo-wrapper">
+	<ul class="nav header-nav ">
+		<li>{{link-to 'Journal' 'posts'}}</li>
+		<li>{{link-to 'About' 'page' 'about'}}</li>
+		{{!--<li>{{link-to 'Contact' 'page' 'contact'}}</li>--}}
+	</ul>
+</nav></header>
+<main class="content content-main lo-wrapper">
 {{outlet}}
+</main>
+<footer class="footer footer-main lo-wrapper">
+  <p>&copy; {{link-to 'Kenneth Lindbeck-Dahlstrøm' 'application'}}</p>
+</footer>

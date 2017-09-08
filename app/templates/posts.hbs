@@ -1,11 +1,7 @@
 
 {{#each model as |post|}}
 <article class="post" data-post-id="{{post.id}}">
-	{{link-to post.title 'posts.post' post}}<br>
+	<h1>{{link-to post.title 'posts.post' post}}</h1>
 	{{{post.content}}}
 </article>
 {{/each}}
-
-
-
-{{outlet}}

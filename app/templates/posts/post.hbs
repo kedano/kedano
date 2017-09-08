@@ -1,3 +1,7 @@
+<article class="post">
+
+
+
 <h1>{{{model.title}}}</h1>
 
 {{{model.content}}}
@@ -6,13 +10,19 @@
 <hr>
 
 <h3>Categories</h3>
-{{#each model.categories as |category|}}
-	{{category.name}}
-{{/each}}
+<ul>
+
+	{{#each model.categories as |category|}}
+		<li>{{category.name}}</li>
+	{{/each}}
+</ul>
 
 <h3>Tags</h3>
+<ul>
 {{#each model.tags as |tag|}}
-	{{tag.name}}
+	<li>{{tag.name}}</li>
 {{/each}}
+</ul>
 --}}
 {{outlet}}
+</article>

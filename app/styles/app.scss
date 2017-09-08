@@ -1,11 +1,556 @@
+
+/*
+## Variables
+*/
+
+$link-color: #333;
+
+$link-hover-color: #111;
+
+$backgroundColour: #FCFCFC;
+$codeBackgroundColour: #002028;
+$body-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue";
+
+/*
+## Typography
+*/
+
+
 html {
   font-size: 62.5%;
-  background: #eee;
+  width: 100%;
+  height: 100%;
+  -ms-text-size-adjust: 100%; /* 2 */
+  -webkit-text-size-adjust: 100%; /* 2 */
+  //background: #000;
+  background: no-repeat center center fixed ;
+  background-size: cover;
+
+  //background:linear-gradient(#fff, #f00);
+  background-image: url(/P1201174.jpg);
+  background-blend-mode: screen;
 }
+
+:focus{
+    outline: 3px solid $link-color;
+    outline: .3rem solid $link-color;
+}
+
+
+/*
+#### Headings
+Headings. OpenType ligatures, discretionary ligatures and lining figures enabled if available.
+*/
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    -webkit-font-feature-settings: 'dlig' 1, 'liga' 1, 'lnum' 1, 'kern' 1;
+    -moz-font-feature-settings: 'dlig=1, liga=1, lnum=1, kern=1';
+    -ms-font-feature-settings: 'dlig' 1, 'liga' 1, 'lnum' 1, 'kern' 1;
+    -o-font-feature-settings: 'dlig' 1, 'liga' 1, 'lnum' 1, 'kern' 1;
+    font-feature-settings: 'dlig' 1, 'liga' 1, 'lnum' 1, 'kern' 1;
+    //color: $headingColour;
+    //font-family: $sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    //font-family: $h-font-family;
+}
+
+
+/*
+##### Heading level 1.
+*/
+
+h1 {
+    //padding-top: 1rem;
+    line-height: 3rem;
+    //.fontsize-0(28);
+    font-weight: 300;
+    font-size: 2.8rem;
+}
+
+
+/*
+##### Heading level 2.
+*/
+
+h2 {
+    //padding-top: 1rem;
+    //.fontsize-0(22);
+    font-size: 2.2rem;
+}
+
+
+/*
+##### Heading level 3.
+*/
+
+h3 {
+    //padding-top: 1rem;
+    //.fontsize-0(20);
+    font-size: 1.8rem;
+}
+
+
+/*
+##### Heading level 4.
+*/
+
+h4 {
+    //padding-top: 1rem;
+    //.fontsize-0(18);
+    font-size: 1.6rem;
+}
+
+
+/*
+##### Heading level 5.
+*/
+
+h5 {
+    //padding-top: 1rem;
+    //.fontsize-0(17);
+    font-size: 1.6rem;
+}
+
+
+/*
+##### Heading level 6.
+*/
+
+h6,
+.zeta {
+    //padding-top: 1rem;
+}
+
+
+/*
+##### Heading combined with other content
+Nice spacing after high level headings and images. Text sits directly below h4, h5 and h6.
+*/
+
+//
+h1 + p,
+h1 + ol,
+h1 + ul,
+h1 + dl,
+h1 + blockquote p,
+h1 + pre,
+.alpha + p,
+.alpha + ol,
+.alpha + ul,
+.alpha + blockquote p,
+.alpha + pre,
+h2 + p,
+h2 + ol,
+h2 + ul,
+h2 + dl,
+h2 + blockquote p,
+h2 + pre,
+.beta + p,
+.beta + ol,
+.beta + ul,
+.beta + blockquote p,
+.beta + pre,
+img + p,
+img + ol,
+img + ul,
+img + blockquote p,
+img + pre,
+#sidebar header + * {
+    margin-top: 2rem;
+}
+
+
+/*
+#### Lists
+*/
+
+ul,
+ol {
+    //margin-left: 2rem;
+}
+
+ul {
+    list-style: disc;
+}
+
+ol {
+    list-style: decimal;
+}
+
+dt,
+dd {
+    display: inline-block;
+    float: left;
+}
+
+dt {
+    clear: left;
+    margin-right: .5rem;
+    font-weight: bold;
+    &:after {
+        content: ": ";
+    }
+}
+
+// Lists.
+ul,
+ol {
+    margin-bottom: 2rem;
+    li {
+        -moz-font-feature-settings: 'kern=1, onum=1, liga=1';
+        -ms-font-feature-settings: 'kern' 1, 'onum' 1, 'liga' 1;
+        -webkit-font-feature-settings: 'kern' 1, 'onum' 1, 'liga' 1;
+        -o-font-feature-settings: 'kern' 1, 'onum' 1, 'liga' 1;
+        font-feature-settings: 'kern' 1, 'onum' 1, 'liga' 1;
+        margin-left: 2.4rem;
+        //a {
+        //  //color: $hoverColour;
+        //  &:hover, &:active, &:focus {
+        //    color: $linkColour;
+        //  }
+        //}
+    }
+}
+
+.dropdown-menu {
+    li {
+        margin-left: 0;
+    }
+}
+
+
+/*
+#### A-links
+*/
+
+a {
+    -webkit-transition: .1s color;
+    -moz-transition: .1s color;
+    -ms-transition: .1s color;
+    -o-transition: .1s color;
+    transition: .1s color;
+    color: $link-color;
+    text-decoration: none;
+    &:hover,
+    &:active,
+    &:focus {
+        color: $link-hover-color;
+        text-decoration: none;
+    }
+}
+
+
+/*
+Dotted underline on links within the content section
+*/
+
+#content,
+.content {
+    a:not(.btn) {
+        border-bottom: 1px dotted $link-color;
+        &:hover,
+        &:active,
+        &:focus {
+            border-bottom: 2px solid $link-color;
+        }
+    }
+}
+
+
+/*
+#### Paragraphs
+Paragraphs. OpenType ligatures and oldstyle figures enabled if available.
+*/
+
+p {
+    -webkit-font-feature-settings: 'kern' 1, 'onum' 1, 'liga' 1;
+    -moz-font-feature-settings: 'kern=1, onum=1, liga=1';
+    -ms-font-feature-settings: 'kern' 1, 'onum' 1, 'liga' 1;
+    -o-font-feature-settings: 'kern' 1, 'onum' 1, 'liga' 1;
+    font-feature-settings: 'kern' 1, 'onum' 1, 'liga' 1;
+    margin-bottom: 2rem;
+    line-height: 1.5em;
+    &.intro {
+        font-size: 130%;
+    }
+}
+
+
+/*
+#### Forms
+*/
+
+form {
+    margin-bottom: 2rem;
+    &.form-inline {
+        margin-bottom: 0;
+    }
+}
+
+// Remove padding-top from first heading
+section > .container >:first-child {
+    padding-top: 0;
+}
+
+
+/*
+#### Quotes
+*/
+
+blockquote {
+  position: relative;
+  //font-style: italic;
+  background: #f9f9f9;
+  padding-left: 4rem;
+  padding-right: 4rem;
+  padding-top: 1rem;
+  border-left: 4px solid #ccc;
+  &:before, &:after{
+    font-size: 8rem;
+    display: block;
+    //font-family: helvetica;
+    position: absolute;
+    color: #ccc;
+  }
+  &:before {
+    content:"\201C";
+    height:0;
+    margin-left:3rem;
+    top: 3rem;
+    left: -2.5rem;
+  }
+  &:after {
+    content:"\201D";
+    height:0;
+    //margin-top:7rem;
+    //margin-left:36rem;
+    bottom:0;
+    right: 1.5rem;
+  }
+  //overrides for .cover-quotes
+  &.cover-quote{
+    border-left: 0px;
+    background: transparent ;
+    cite{
+        border-left: 0px ;
+        background: transparent ;
+        &:before, &:after{
+          display: none;
+        }
+    }
+    &:before, &:after{
+      display: none;
+    }
+  }
+}
+cite{
+  font-style: italic;
+  padding-left: 4rem;
+  background: #f9f9f9;
+  display: block;
+  border-left: 4px solid #ccc;
+  padding-top: 1rem;
+  //position: relative;
+  &:before {
+    content: "\2013";
+    margin-right: 1rem;
+    display: inline-block;
+    //position: absolute;
+    //left:4;
+  }
+}
+
+
+/*
+#### Horizontal rule.
+*/
+
+hr {
+    color: darken($backgroundColour, 20%);
+    background-color: darken($backgroundColour, 20%);
+    border: 0;
+    border-bottom: 1px solid darken($backgroundColour, 20%);
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+
+
+/*
+#### Code block. Some styles from normalize included.
+ Some styles from normalize included.
+*/
+
+code,
+pre {
+    background-color: $codeBackgroundColour;
+    color: #fff;
+    font-family: Menlo, Monaco, "Courier New", monospace;
+}
+
+pre {
+    border-radius: 0.5rem;
+    display: block;
+    white-space: pre;
+    white-space: pre-wrap;
+    word-break: break-all;
+    word-wrap: break-word;
+    margin-bottom: 2rem;
+    padding: 1rem;
+}
+
+pre code {
+    //.fontsize-0(14);
+    font-size: 1.4rem;
+}
+
+
+/*
+#### Helpers
+*/
+
+
+/*
+##### Bold
+*/
+
+b,
+strong,
+.bold {
+    font-weight: 600;
+}
+
+
+/*
+##### Italic.
+*/
+
+em,
+i,
+.italic {
+    font-style: italic;
+}
+
+
+/*
+##### Caption or inline small text.
+*/
+
+small,
+.caption {
+    font-family: $body-font-family;
+    //.fontsize-0(12);
+    font-size: 1.2rem;
+}
+
+
+/*
+##### Abbrevation
+*/
+
+abbr {
+    border-bottom: 1px dotted black;
+    &:hover {
+        cursor: help;
+    }
+}
+
+
+/*
+##### Nice spacing for captions.
+*/
+
+h1 + .caption,
+.alpha + .caption,
+h2 + .caption,
+.beta + .caption,
+h3 + .caption,
+.gamma + .caption,
+img + .caption {
+    margin-top: 0;
+}
+
+
+/*
+##### Letter space those capitals people, Jan Tschichold would be proud.
+*/
+
+.upper {
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+}
+
+
+/*
+##### Special styling for inline-editing notes from the admission office
+*/
+
+.admissionUpdateTime {
+    font-size: 14px;
+    font-size: 1.4rem;
+    font-style: italic;
+}
+
+
+/*
+### MQ tweaks at sertain breakpoints
+*/
+
+
+///*
+//#### Small screens
+//*/
+
+//@include mq($until: small) {
+//    //#content {
+//    //   font-size: 80%;
+//    //}
+//}
+
+
+///*
+//#### Medium screens
+//*/
+
+//@include mq($from: small, $until: large) {
+//    #content {
+//        //font-size: 80%;
+//        p,
+//        ul,
+//        ol {
+//            //font-size: 120%;
+//            max-width: 60rem;
+//            line-height: 1.5em;
+//        }
+//    }
+//}
+
+
+///*
+//#### Large screens
+//*/
+
+//@include mq($from: large) {}
+
+
+/*
+#### HR screens
+*/
+
+//@media (-webkit-min-device-pixel-ratio: 2),(min-resolution: 192dppx) {
+//    #content {
+//        font-weight: 300;
+//    }
+//}
+
+
 body{
-  font-family: -apple-system, BlinkMacSystemFont,
-  "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
-  "Fira Sans", "Droid Sans", "Helvetica Neue",
+  font-family: $body-font-family,
   sans-serif;
   max-width: 70rem;
   margin: 0 auto;
@@ -13,7 +558,7 @@ body{
   color: #555;
 }
 a{
-  color: #111;
+  color: $link-color;
 }
 .lo-wrapper{
   display: flex;
@@ -32,12 +577,18 @@ a{
   display: inline-block;
   //background: yellow;
   flex: 1 30%;
-  margin: 0;
+  margin: 2rem 0;
   a{
-    font-size: 2rem;
+    line-height: 3rem;
+    font-size: 2.8rem;
+    font-weight: 300;
     line-height: 4.4rem;
-    color: #000;
+    //color: #000;
     text-decoration: none;
+    text-transform: uppercase;
+
+      mix-blend-mode: difference;
+
   }
 }
 .nav {
@@ -50,20 +601,65 @@ a{
 
   margin: 0;
   padding: 0;
+  //li{
+  //  display: inline-block;
+  //  list-style: none;
+  //}
+  //a{
+  //  text-decoration: none;
+  //  display: block;
+  //  padding: 0 1em;
+  //  color: #000;
+  //  line-height: 4.4rem;
+  //  &:hover{
+  //    background: #fff;
+  //  }
+  //}
+
+
+
+}
+
+nav{
+  position:relative;
+  width:100vw;
+  display:block;
+}
+.header-nav{
+  margin:0;
+  padding:0;
+  list-style:none;
+  display:flex;
+  overflow-x:auto;
+  -webkit-overflow-scrolling:touch;
   li{
-    display: inline-block;
-    list-style: none;
+
+      margin:0;
+      padding:0;
+      list-style:none;
+      a{
+
+          margin:0;
+          padding: 1rem 1.5rem;
+          display:block;
+          background-color:#fff;
+          text-decoration: none;
+          //border: 1px solid #555;
+          margin-left: .5rem;
+          //border-radius: .4rem;
+          //list-style: none;
+          text-transform: uppercase;
+          &:hover{
+            background-color:#000;
+            color: #fff;
+          }
+      }
   }
-  a{
-    text-decoration: none;
-    display: block;
-    padding: 0 1em;
-    color: #000;
-    line-height: 4.4rem;
-    &:hover{
-      background: #fff;
-    }
-  }
+}
+
+
+img{
+  max-width: 100%;
 }
 //.content-main{
 //  max-width: 64rem;
@@ -72,14 +668,25 @@ a{
 /* Small screens */
 @media all and (max-width: 500px) {
   html{
-    background: pink;
+    //background: pink;
   }
   body{
     padding: 0 2rem;
   }
+  .brand{
+    flex: 1 100%;
+    //height: 100px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+  }
   .nav, .header {
     /* On small screens, we are no longer using row direction but column */
-    flex-direction: column;
+    //flex-direction: column;
+  }
+  nav{
+    text-align: center;
+    //display: block;
+    width: 100%;
   }
 }
 
@@ -89,6 +696,27 @@ a{
     /* When on medium sized screens, we center it by evenly distributing empty space around items */
     justify-content: space-around;
   }
+
+  .brand{
+
+    a{
+      //line-height: 3rem;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+  }
+  h1{
+
+    font-size: 2rem;
+  }
+  h2{
+
+    font-size: 1.8rem;
+  }
+  h3{
+
+    font-size: 1.4rem;
+  }
 }
 .post, .page{
   //border-bottom: 1px solid #fef;
@@ -97,4 +725,5 @@ a{
 }
 .footer-main p{
   text-align: center;
+  margin: 0 auto;
 }
